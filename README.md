@@ -53,27 +53,6 @@ Then visit <http://localhost:8000>.
 
 This project does not include a `package.json`, lock file, or build script, so there is no need to run `npm install` or bundle the project.
 
-## Deploying to Cloudflare Pages
-
-This project can be deployed to Cloudflare Pages as a static site without a build command or framework adapter. The root-level `wrangler.jsonc` sets the Pages static asset directory to `.`.
-
-For Cloudflare Pages Git integration, select **None** as the framework preset and use:
-
-| Setting | Value |
-| --- | --- |
-| Root directory | `/` (repository root) |
-| Build command | Leave blank |
-| Build output directory | `.` |
-
-You can also deploy manually with Wrangler. Create a Pages project in Cloudflare first (or follow the prompt during the first deployment), then run:
-
-```bash
-npx wrangler login
-npx wrangler pages deploy . --project-name=wonderful-today
-```
-
-On the first `npx wrangler` run, follow the prompt to install Wrangler. `--project-name` must match the Cloudflare Pages project name; change it if your project uses a different name. To use a custom domain, add it under **Custom domains** in the Cloudflare Pages project and complete the DNS setup. The repository's `CNAME` file does not replace this configuration.
-
 ## Main Implementation Notes
 
 ### Background Images

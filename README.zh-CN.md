@@ -53,27 +53,6 @@ python3 -m http.server 8000
 
 项目没有 `package.json`、锁文件或构建脚本，因此不需要执行 `npm install` 或打包构建。
 
-## 部署到 Cloudflare Pages
-
-项目可直接作为静态站点部署到 Cloudflare Pages，不需要构建命令或框架适配器。仓库根目录的 `wrangler.jsonc` 将 Pages 静态资源目录设置为 `.`。
-
-使用 Cloudflare Pages 的 Git 集成时，选择 **None** 作为框架预设，并设置：
-
-| 设置 | 值 |
-| --- | --- |
-| 根目录 | `/`（仓库根目录） |
-| 构建命令 | 留空 |
-| 构建输出目录 | `.` |
-
-也可以使用 Wrangler 手动发布。先在 Cloudflare 创建 Pages 项目（或首次部署时按提示创建），然后运行：
-
-```bash
-npx wrangler login
-npx wrangler pages deploy . --project-name=wonderful-today
-```
-
-首次运行 `npx wrangler` 时，按提示安装 Wrangler。`--project-name` 必须与 Cloudflare Pages 项目名称一致；如果项目使用了其他名称，请相应修改该参数。若要绑定自定义域名，请在 Cloudflare Pages 项目的 **Custom domains** 设置中添加域名并完成 DNS 配置；仓库中的 `CNAME` 文件不会替代此设置。
-
 ## 主要实现说明
 
 ### 背景图
